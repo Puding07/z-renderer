@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zrenderer"
+version = "0.1.0"
+description = "Render STL/OBJ meshes to PNG with a tiny numpy z-buffer rasterizer - no OpenGL, works headless"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["numpy", "matplotlib"]
+keywords = ["stl", "render", "3d-printing", "cad", "freecad", "rasterizer"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Multimedia :: Graphics :: 3D Rendering",
+]
+
+[project.urls]
+Homepage = "https://github.com/Puding07/z-renderer"
+
+[project.scripts]
+zrender = "zrenderer.cli:main"
+
+[tool.setuptools]
+packages = ["zrenderer"]

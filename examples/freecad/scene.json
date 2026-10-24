@@ -1,0 +1,26 @@
+{
+  "output_dir": "out",
+  "models": {
+    "screw":     { "file": "mesh.json", "color": [0.25, 0.5, 0.88] },
+    "nut":       { "file": "mesh.json", "color": [0.90, 0.55, 0.20] },
+    "screw_lay": { "file": "mesh.json", "key": "screw", "color": [0.25, 0.5, 0.88],
+                   "transform": [{ "rotate": { "axis": [1, 0, 0], "angle": 90 } }] },
+    "nut_lay":   { "file": "mesh.json", "key": "nut", "color": [0.90, 0.55, 0.20],
+                   "transform": [{ "rotate": { "axis": [1, 0, 0], "angle": 90 } }] }
+  },
+  "figures": [
+    { "output": "screw.png", "panels": [
+        { "parts": ["screw"], "title": "Screw – from above", "elev": 30, "azim": -55 },
+        { "parts": ["screw"], "title": "Screw – flat side", "elev": 15, "azim": -120 } ] },
+    { "output": "nut.png", "panels": [
+        { "parts": ["nut"], "title": "Nut – from above", "elev": 40, "azim": -55 },
+        { "parts": ["nut"], "title": "Nut – flat side", "elev": 15, "azim": -120 } ] },
+    { "output": "assembled.png", "panels": [
+        { "parts": ["screw", "nut"], "title": "Assembled – 18 mm (min.)", "elev": 15, "azim": -55 },
+        { "parts": ["screw", { "model": "nut", "transform": [{ "translate": [0, 0, 10] }] }],
+          "title": "Unscrewed – 28 mm (max.)", "elev": 15, "azim": -55 } ] },
+    { "output": "printing.png", "elev": 25, "azim": -60, "bed": true, "panels": [
+        { "parts": ["screw_lay"], "title": "Screw lying on the bed" },
+        { "parts": ["nut_lay"], "title": "Nut lying on the bed" } ] }
+  ]
+}

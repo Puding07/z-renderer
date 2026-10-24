@@ -1,0 +1,35 @@
+{
+  "output_dir": "out",
+  "defaults": { "width": 560, "height": 560, "elev": 25, "azim": -55 },
+  "models": {
+    "rod": { "file": "rod.stl", "color": "#4080e0" },
+    "nut": { "file": "nut.stl", "color": [0.90, 0.55, 0.20] }
+  },
+  "figures": [
+    {
+      "output": "parts.png",
+      "panels": [
+        { "parts": ["rod"], "title": "Rod" },
+        { "parts": ["nut"], "title": "Nut", "elev": 40 }
+      ]
+    },
+    {
+      "output": "assembly.png",
+      "panels": [
+        { "parts": ["rod", { "model": "nut", "transform": [{ "translate": [0, 0, 8] }] }],
+          "title": "Nut screwed in" },
+        { "parts": ["rod", { "model": "nut", "transform": [{ "translate": [0, 0, 22] }] }],
+          "title": "Nut screwed out" }
+      ]
+    },
+    {
+      "output": "print_bed.png",
+      "elev": 25, "azim": -60,
+      "panels": [
+        { "parts": [{ "model": "rod", "transform": [{ "rotate": { "axis": [1, 0, 0], "angle": 90 } }] }],
+          "title": "Rod lying on the bed", "bed": true },
+        { "parts": ["nut"], "title": "Nut on the bed", "bed": true }
+      ]
+    }
+  ]
+}
