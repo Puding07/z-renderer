@@ -18,7 +18,7 @@ pip install git+https://github.com/Puding07/z-renderer.git
 pip install -e .
 ```
 
-Requires Python ≥ 3.9, `numpy` and `matplotlib`.
+Requires Python ≥ 3.10, `numpy` and `matplotlib`.
 
 ## Command line
 
